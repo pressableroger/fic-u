@@ -107,6 +107,8 @@ function university_post_types() {
     // Home Slider Post Type
     register_post_type('home_slide', array(
         'supports' => array('title'),
+        'public' => false,
+        'show_ui' => true,
         'labels' => array (
             'name' => 'Home Slides',
             'add_new_item' => 'Add New Home Slide',
