@@ -1,0 +1,6 @@
+deploy:
+  script:
+    - apt-get update -qq && apt-get install -y -qq lftp
+    - lftp 'sftp://4f09gl1zk1gcvl:5m0l6ppxhv99jc@sftp.pressable.com:22' -e 'set sftp:auto-confirm yes; set ftp:ssl-allow false; set ftp:use-feat false; mirror -Rnev ./app/ ./fictionuni/ --parallel=3 --exclude-glob .git* --exclude .git/'
+  only:
+    - master
