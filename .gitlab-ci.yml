@@ -1,6 +1,6 @@
 deploy:
   script:
     - apt-get update -qq && apt-get install -y -qq lftp
-    - lftp 'sftp://4f09gl1zk1gcvl:5m0l6ppxhv99jc@sftp.pressable.com:22' -e 'set sftp:auto-confirm yes; set ftp:ssl-allow false; set ftp:use-feat false; mirror -Rnev ./app/ ./fictionuni/ --parallel=3 --exclude-glob wp-config.php --exclude-glob .git* --exclude .git/'
+    - lftp 'sftp://4f09gl1zk1gcvl:5m0l6ppxhv99jc@sftp.pressable.com:22' -e 'set sftp:auto-confirm yes; set ftp:ssl-allow false; set ftp:use-feat false; mirror -Rnev ./app/ ./fictionuni/ --parallel=3--exclude-glob wp-load.php --exclude-glob __wp__ --exclude-glob /wp-content/advanced-cache.php --exclude-glob /wp-content/object-cache.php --exclude-glob /wp-content/plugins/akismet --exclude-glob /wp-content/plugins/classic-editor --exclude-glob /wp-content/plugins/gutenberg --exclude-glob /wp-content/plugins/jetpack --exclude-glob /wp-content/themes/twentynineteen --exclude-glob /wp-content/themes/twentyseventeen --exclude-glob /wp-content/themes/twentysixteen --exclude-glob wp-config.php --exclude-glob .git* --exclude .git/'
   only:
     - master
