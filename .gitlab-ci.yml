@@ -1,0 +1,11 @@
+variables:
+  HOST: "fictionuni.mystagingwebsite.com/"
+  USERNAME: "4f09gl1zk1gcvl"
+  PASSWORD: "5m0l6ppxhv99jc"
+
+deploy:
+  script:
+    - apt-get update -qq && apt-get install -y -qq lftp
+    - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rnev ./app/ ./ --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/"
+  only:
+    - master
