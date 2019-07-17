@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "themes/fictional-university-theme"
+		},
+		{
+			"path": "themes/fictional-university-theme/template-parts"
+		},
+		{
+			"path": "plugins"
+		}
+	],
+	"settings": {}
+}
